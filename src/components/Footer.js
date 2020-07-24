@@ -14,9 +14,12 @@ const Footer = () => {
     
     return (
         <div className="footer">
-            <div className="github icon" onClick={redirect}/>
-            <div className="linkedin icon" onClick={redirect}/>
-            <div className="medium icon" onClick={redirect}/>
+            <div className="msg">Get in touch!</div>
+            <div className="contact">
+                <div className="github icon" onClick={redirect}/>
+                <div className="linkedin icon" onClick={redirect}/>
+                <div className="medium icon" onClick={redirect}/>
+            </div>
         </div>
     )
 }

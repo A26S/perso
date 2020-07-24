@@ -1,12 +1,15 @@
-import React from 'react'
+import React, {  } from 'react'
 
-const Project = () => {
+const Project = ({title, description, img, alt, url}) => {
+    
+    const handleClick = () => {
+        window.open(url, '_blank')
+    }
     return (
         <div className="project">
-            <h3>exoplanets</h3>
-            <div className="img"/>
-            <div className="description">using the NASA API to visualise exoplanet data</div>
-            <div>https://nifty-mccarthy-59fba0.netlify.app</div>
+            <h3>{title}</h3>
+            <div className="img" onClick={handleClick} />
+            <div className="description">{description}</div>
         </div>
     )
 }
