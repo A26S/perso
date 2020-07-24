@@ -1,8 +1,14 @@
 import React from 'react'
+import useWidth from '../hooks/useWidth'
 
 const Landing = () => {
+    const width = useWidth()
+
     return (
-        <p>Hey, I'm Ali, a software engineer based in London. I develop computer software for businesses.</p>
+        <div className="landing">
+            <h1>Ali Saidik</h1>
+            <h2>Software engineer.{width < 700 ? <br/> : ' '}London-based.</h2>
+        </div>
     )
 }
 

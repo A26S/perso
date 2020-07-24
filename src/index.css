@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 body {
@@ -13,6 +14,54 @@ body {
 .root {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
-  background-color: green;
+}
 
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 25vh;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  place-items: center;
+}
+
+nav p {
+  width: 100%;
+}
+
+nav p:nth-child(2) {
+  grid-column: 5 / 6;
+}
+
+nav p:nth-child(3) {
+  grid-column: 6 / 7;
+}
+
+nav p:nth-child(4) {
+  grid-column: 7 / 8;
+}
+
+nav p.nav-mobile:first-child {
+  grid-column: 1 / 3;
+}
+
+nav p.nav-mobile:nth-child(2),
+nav p.nav-mobile:nth-child(3),
+nav p.nav-mobile:nth-child(4) {
+  text-align: left;
+}
+
+.landing { 
+  width: 100%;
+  height: 100vh;
+  grid-column: 1 / 13;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+h2 {
+  width: 100%;
 }
