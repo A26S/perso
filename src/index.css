@@ -5,17 +5,20 @@
   text-align: center;
 }
 
-body {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  min-height: 200vh;
+::-webkit-scrollbar {
+  display: none;
 }
 
-#root {
-  overflow-y: scroll;
+html, body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  /* overflow: hidden; */
+  background-color: gray;
 }
 
 .root {
+  overflow: hidden;
+  min-height: 200vh;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -73,5 +76,59 @@ h2 {
 .about {
   height: 100vh;
   grid-column: 1 / 13;
-  /* width: 100%; */
+}
+
+.work {
+  /* height: 100vh; */
+  grid-column: 1 / 13;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+}
+
+.project {
+  height: 400px;
+}
+
+.img {
+  background-image: url('./assets/exoplanets.png');
+  background-size: 100% 100%;
+  width: 320px;
+  height: 180px;
+}
+
+.footer {
+  height: 20vh;
+  grid-column: span 12;
+  display: flex;
+}
+
+.icon {
+  height: 75px;
+  width: 75px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  filter: brightness(0) invert(1) blur(.2px) contrast(30);
+  transition: filter 200ms ease-out;
+  position: relative;
+  margin: 0 10px;
+} 
+
+.icon:hover {
+  filter: none;
+}
+
+.github {
+  background-image: url('./assets/github-logo.png');
+}
+
+.linkedin {
+  background-image: url('./assets/LI-In-Bug.png');
+}
+
+.medium {
+  background-image: url('./assets/medium.webp');
+}
+
+.medium:hover {
+  background-color: white;
 }
