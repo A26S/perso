@@ -5,9 +5,9 @@
   text-align: center;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
   display: none;
-}
+} */
 
 ::selection {
   background-color: red;
@@ -17,10 +17,23 @@
 html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* overflow: hidden; */
+  height: 100%;
+  width: 100%;
   background-color: #070713;
   color: #2FE8C3;
-  height: 500vh;
+}
+
+body {
+  overscroll-behavior-y: none;
+}
+
+#root {
+  position: fixed;
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
 }
 
 canvas {
@@ -30,7 +43,7 @@ canvas {
 
 .root {
   overflow: hidden;
-  min-height: 200vh;
+  /* min-height: 400vh; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -143,13 +156,8 @@ h2 {
 }
 
 .footer {
-  height: 20vh;
+  height: 50vh;
   width: 100%;
-  background-color: #0d0d26;
-  background-color: #404040;
-  background-color: #808080;
-  position: fixed;
-  bottom: 0;
   grid-column: span 12;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -184,6 +192,7 @@ h2 {
 
 .icon:hover {
   filter: none;
+  cursor: pointer;
 }
 
 .github {
