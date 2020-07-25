@@ -1,4 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react';
+import lerp from 'lerp';
 import Nav from './components/Nav';
 import Landing from './components/Landing';
 import About from './components/About';
@@ -15,25 +16,22 @@ function App() {
   }, [height])
   
   useLayoutEffect(() => {
-    requestAnimationFrame(() => scroll())
+    requestAnimationFrame(scroll)
   }, [])
   
   const data = {
-    ease: 0.1,
     current: 0,
-    previous: 0,
-    rounded: 0
-  };
+    previous: 0,  
+    ease: 0.075
+  }
   
   const scroll = () => {
     data.current = window.scrollY
-    data.previous += (data.current - data.previous) * data.ease;
-    data.rounded = Math.round(data.previous * 100) / 100;
+    data.previous = lerp(data.previous, data.current, data.ease);
 
-    root.current.style.transform = `translate3d(0, -${data.rounded}px, 0)`;
+    root.current.style.transform = `translate3d(0, -${data.previous}px, 0)`;
 
-    
-    requestAnimationFrame(() => scroll())
+    requestAnimationFrame(scroll)
   }
   
   console.count('render')
