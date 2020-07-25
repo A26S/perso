@@ -6,21 +6,21 @@ const Work = () => {
         {
             title: 'Exoplanets',
             description: 'Interacting with the NASA API to visualise exoplanet data.',
-            img: 'lol',
+            img: 'exoplanets.png',
             alt: 'Exoplanets Project',
             url: 'https://nifty-mccarthy-59fba0.netlify.app'
         },
         {
             title: 'Type-Test',
             description: 'Test your type efficiency with an exciting speed-test!',
-            img: 'lol',
+            img: 'type-test.jpeg',
             alt: 'Type-Test Project',
             url: 'https://github.com/A26S/type-test-improved'
         },
         {
             title: 'DevCoin',
             description: 'Pure JavaScript implementation of a cryptocurrency, built on blockchain technology.',
-            img: 'lol',
+            img: 'blockchain.jpg',
             alt: 'DevCoin Project',
             url: 'https://github.com/A26S/DevCoin'
         }
