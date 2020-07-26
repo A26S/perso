@@ -1,44 +1,25 @@
 import React, { useLayoutEffect, useRef } from 'react'
+import useClass from '../hooks/useClass'
+import useWindow from '../hooks/useWindow'
 
 const Project = ({title, description, img, alt, url}) => {
+    const project = useRef()
     const imgRef = useRef()
     const wrap = useRef()
-    
+    const { height } = useWindow()
+    useClass([project])
+    // console.log(project)
     
     const handleClick = () => {
         window.open(url, '_blank')
     }
 
-    const handleMouseMove = e => {
-        e.target.style.setProperty('--x', e.clientX - (e.target.getBoundingClientRect().left + Math.floor(e.target.getBoundingClientRect().width / 2)))
-        e.target.style.setProperty('--y', e.clientY - (e.target.getBoundingClientRect().top + Math.floor(e.target.getBoundingClientRect().height / 2)))
-    }
-
-    const handleMouseLeave = e => {
-        e.target.style.setProperty('--x', 0)
-        e.target.style.setProperty('--y', 0) 
-    }
-
-    useLayoutEffect(() => {
-        const render = () => {
-            requestAnimationFrame(render)
-            imgRef.current.addEventListener('mousemove', handleMouseMove)
-        }
-        render()
-        return () => imgRef.current.removeEventListener('mousemove', handleMouseMove)
-    }, [])
-
-    useLayoutEffect(() => {
-        const render = () => {
-            requestAnimationFrame(render)
-            imgRef.current.addEventListener('mouseleave', handleMouseLeave)
-        }
-        render()
-        return () => imgRef.current.removeEventListener('mouseleave', handleMouseLeave)
-    }, [])
+    // useLayoutEffect(() => {
+    //     lol()
+    // }, [height])
 
     return (
-        <div className="project">
+        <div className="project" ref={project}>
             <h3>{title}</h3>
             <div className="img-wrap" ref={imgRef} onClick={handleClick} >
                 <img className="img" ref={wrap} src={img} alt={alt}/>
