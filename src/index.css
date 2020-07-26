@@ -36,14 +36,8 @@ body {
   left: 0;
 }
 
-canvas {
-  height: 30vh;
-  width: 100vw;
-}
-
 .root {
   overflow: hidden;
-  /* min-height: 400vh; */
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
@@ -58,8 +52,8 @@ nav {
   place-items: center;
 }
 
-nav p {
-  width: 100%;
+nav p:hover {
+  cursor: pointer;
 }
 
 nav p:nth-child(2) {
@@ -104,7 +98,6 @@ h2 {
 }
 
 .work {
-  /* height: 100vh; */
   grid-column: 1 / 13;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
@@ -143,7 +136,7 @@ h2 {
   cursor: pointer;
 }
 
-.img:nth-child(1) {
+/* .img:nth-child(1) {
   background-image: url('./assets/exoplanets.png');
 }
 
@@ -153,7 +146,7 @@ h2 {
 
 .img:nth-child(3) {
   background-image: url('./assets/blockchain.jpg');
-}
+} */
 
 .footer {
   height: 50vh;

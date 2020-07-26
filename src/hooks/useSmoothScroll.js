@@ -1,6 +1,6 @@
 import lerp from 'lerp';
 
-const useSmoothScroll = el => {
+const useSmoothScroll = (el, factor) => {
     const data = {
         current: 0,
         previous: 0,  
@@ -8,7 +8,7 @@ const useSmoothScroll = el => {
     
     const scroll = () => {
         data.current = window.scrollY
-        data.previous = lerp(data.previous, data.current, 0.075);
+        data.previous = lerp(data.previous, data.current, factor);
 
         el.current.style.transform = `translate3d(0, -${data.previous}px, 0)`;
 

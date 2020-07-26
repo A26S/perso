@@ -1,9 +1,9 @@
-import React, { useRef, useLayoutEffect } from 'react'
-import useWidth from '../hooks/useWindow'
+import React, { useRef, useLayoutEffect, memo } from 'react'
+import useWindow from '../hooks/useWindow'
 
 const Nav = () => {
     const nav = useRef()
-    const width = useWidth()
+    const { width } = useWindow()
 
     useLayoutEffect(() => {
         nav.current.childNodes.forEach(p => {
@@ -23,4 +23,4 @@ const Nav = () => {
     )
 }
 
-export default Nav
+export default memo(Nav)

@@ -19,7 +19,6 @@ const Project = ({title, description, img, alt, url}) => {
         e.target.style.setProperty('--y', 0) 
     }
 
-
     useLayoutEffect(() => {
         const render = () => {
             requestAnimationFrame(render)
@@ -42,7 +41,7 @@ const Project = ({title, description, img, alt, url}) => {
         <div className="project">
             <h3>{title}</h3>
             <div className="img-wrap" ref={imgRef} onClick={handleClick} >
-                <div className="img" ref={wrap}/>
+                <img className="img" ref={wrap} src={img} alt={alt}/>
             </div>
             <div className="description">{description}</div>
         </div>
