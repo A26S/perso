@@ -1,5 +1,5 @@
 import React, { useRef, useLayoutEffect } from 'react'
-import useWidth from '../hooks/useWidth'
+import useWidth from '../hooks/useWindow'
 
 const Nav = () => {
     const nav = useRef()

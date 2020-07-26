@@ -1,40 +1,27 @@
 import React, { useRef, useLayoutEffect } from 'react';
-import lerp from 'lerp';
 import Nav from './components/Nav';
 import Landing from './components/Landing';
 import About from './components/About';
 import Work from './components/Work';
 import Footer from './components/Footer';
-import useHeight from './hooks/useHeight';
+import useSmoothScroll from './hooks/useSmoothScroll';
+import useScroll from './hooks/useScroll';
 
 function App() {
   const root = useRef()
-  const height = useHeight()
+  const [setBodySize, height] = useScroll(root)
+  const smoothscroll = useSmoothScroll(root)
 
   useLayoutEffect(() => {
-    document.body.style.height = `${root.current.getBoundingClientRect().height}px`
+    setBodySize()
   }, [height])
   
   useLayoutEffect(() => {
-    requestAnimationFrame(scroll)
+    smoothscroll()
   }, [])
   
-  const data = {
-    current: 0,
-    previous: 0,  
-    ease: 0.075
-  }
-  
-  const scroll = () => {
-    data.current = window.scrollY
-    data.previous = lerp(data.previous, data.current, data.ease);
-
-    root.current.style.transform = `translate3d(0, -${data.previous}px, 0)`;
-
-    requestAnimationFrame(scroll)
-  }
-  
   console.count('render')
+
   return (      
     <div className="root" ref={root}>
       <Nav/>
