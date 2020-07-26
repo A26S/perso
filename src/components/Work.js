@@ -20,7 +20,7 @@ const Work = () => {
         {
             title: 'DevCoin',
             description: 'Pure JavaScript implementation of a cryptocurrency, built on blockchain technology.',
-            img: '/blockchain.jpg',
+            img: '/F1.large.jpg',
             alt: 'DevCoin Project',
             url: 'https://github.com/A26S/DevCoin'
         }

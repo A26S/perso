@@ -40,7 +40,7 @@ const useParallax = (elements) => {
         
         const layout = () => {
             const { previous } = translateY
-            el.current.style.transform = `translate3d(${previous}px,0,0)`;
+            el.current.style.transform = `translate3d(0, ${previous}px, 0)`;
         }
         
         const render = () => {

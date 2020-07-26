@@ -1,18 +1,18 @@
-import React, { useLayoutEffect, useRef } from 'react'
+import React, { useRef, memo } from 'react'
 import useParallax from '../hooks/useParallax'
 
 const Project = ({title, description, img, alt, url}) => {
-    const project = useRef()
+    const h3 = useRef()
     const imgRef = useRef()
-    const wrap = useRef()
+    const button = useRef()
     useParallax([
+        // {
+        //     el: imgRef,
+        //     overflow: 50
+        // }, 
         {
-            el: project,
-            overflow: 150
-        }, 
-        {
-            el: imgRef,
-            overflow: 10
+            el: h3,
+            overflow: 35
         }
     ])
     
@@ -21,14 +21,15 @@ const Project = ({title, description, img, alt, url}) => {
     }
 
     return (
-        <div className="project" ref={project}>
-            <h3>{title}</h3>
+        <div className="project" >
+            <h3 ref={h3}>{title}</h3>
             <div className="img-wrap" ref={imgRef} onClick={handleClick} >
-                <img className="img" ref={wrap} src={img} alt={alt}/>
+                <img className="img" src={img} alt={alt}/>
+                <div className="button" ref={button}>View</div>
             </div>
             <div className="description">{description}</div>
         </div>
     )
 }
 
-export default Project
+export default memo(Project)

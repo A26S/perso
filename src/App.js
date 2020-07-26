@@ -22,14 +22,16 @@ function App() {
   
   console.count('render')
 
-  return (      
+  return (  
+    <>    
+    <Nav/>
     <div className="root" ref={root}>
-      <Nav/>
       <Landing/>
       <About/>
       <Work/>
       <Footer/>
     </div>
+    </>
   );
 }
 
