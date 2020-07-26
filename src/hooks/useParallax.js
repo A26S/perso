@@ -1,24 +1,78 @@
-import lerp from 'lerp';
+import { useLayoutEffect, useState } from 'react'
+import lerp from 'lerp'
+import useWindow from './useWindow'
 
-const useParallax = (elements, factor) => {
-    // const data = {
-    //     current: 0,
-    //     previous: 0,  
-    // }
+const useParallax = (elements) => {
+    const { height } = useWindow()
+    const [visible, setVisible] = useState(false)
     
-    // const scroll = () => {
-    //     elements.forEach(el => {
-    //         data.current = el.current.getBoundingClientRect().top / factor
-    //         data.previous = lerp(data.previous, data.current, 0.1);
-            
-    //         console.log(el.current.getBoundingClientRect())
-    //         el.current.style.transform = `translate3d(0, ${data.previous - el.current.getBoundingClientRect().height}px, 0)`;
-            
-    //         requestAnimationFrame(scroll)
-    //     })
-    // }
+    const MathUtils = {
+        map: (x, a, b, c, d) => (x - a) * (d - c) / (b - a) + c,
+    };
 
-    // return () => requestAnimationFrame(scroll)
+    const translateY = {
+        previous: 0, 
+        current: 0, 
+        ease: 0.1,
+        setValue: (overflow) => {
+            const toValue = -1 * overflow;
+            const val = MathUtils.map(props.top - window.scrollY, height, -1 * props.height, overflow, toValue);
+            return overflow < 0 ? Math.min(Math.max(val, overflow), toValue) : Math.max(Math.min(val, overflow), toValue);
+        }
+    }
+    
+    const props = {
+        height: 0,
+        top: 0
+    }
+
+    const parallax = (el, overflow) => {
+        const getSize = () => {
+            const rect = el.current.getBoundingClientRect()
+            props.height = rect.height
+            props.top =  window.scrollY + rect.top
+        } 
+        
+        const update = () => {
+            translateY.previous = translateY.current = translateY.setValue(overflow)
+            layout()
+        }
+        
+        const layout = () => {
+            const { previous } = translateY
+            el.current.style.transform = `translate3d(${previous}px,0,0)`;
+        }
+        
+        const render = () => {
+            let { previous, current, ease } = translateY
+            previous = lerp(previous, current, ease)
+            layout()
+        }
+        
+        const isVisible = () => {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => setVisible(entry.intersectionRatio > 0))
+            })
+            observer.observe(el.current)
+        }
+        
+        isVisible()
+        getSize()
+        update()
+
+        if (visible) {
+            render() 
+        }
+        requestAnimationFrame(() => parallax(el, overflow))
+    }
+
+    useLayoutEffect(() => {
+        elements.forEach(({ el, overflow }) => {
+            if (el.current) {
+                requestAnimationFrame(() => parallax(el, overflow))
+            }
+        })
+    }, [])
 }
 
 export default useParallax

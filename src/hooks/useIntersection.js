@@ -1,26 +1,27 @@
 import { useState, useEffect } from "react"
 
-const useIntersection = () => {
-    const [ref, setRef] = useState(null)
+const useIntersection = (ref) => {
     const [visible, setVisible] = useState(false)
-
+    
     useEffect(() => {
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => setVisible(entry.isIntersecting))
+            console.log(entries)
+            entries.forEach(entry => setVisible(entry.intersectionRatio > 0))
+            console.log({ref})
         })
         
-        if (ref) {
-            observer.observe(ref)
+        if (ref.current) {
+            observer.observe(ref.current)
         }
         
         return () => {
-            if (ref) {
-                observer.unobserve(ref)
+            if (ref.current) {
+                observer.unobserve(ref.current)
             }
         }
     }, [ref])
 
-    return [visible, setRef]
+    return visible
 }
 
 export default useIntersection

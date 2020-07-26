@@ -1,22 +1,24 @@
 import React, { useLayoutEffect, useRef } from 'react'
-import useClass from '../hooks/useClass'
-import useWindow from '../hooks/useWindow'
+import useParallax from '../hooks/useParallax'
 
 const Project = ({title, description, img, alt, url}) => {
     const project = useRef()
     const imgRef = useRef()
     const wrap = useRef()
-    const { height } = useWindow()
-    useClass([project])
-    // console.log(project)
+    useParallax([
+        {
+            el: project,
+            overflow: 150
+        }, 
+        {
+            el: imgRef,
+            overflow: 10
+        }
+    ])
     
     const handleClick = () => {
         window.open(url, '_blank')
     }
-
-    // useLayoutEffect(() => {
-    //     lol()
-    // }, [height])
 
     return (
         <div className="project" ref={project}>

@@ -8,16 +8,16 @@ const Landing = () => {
     const { width } = useWindow()
     const name = useRef()
     const bio = useRef()
-    const [visible, setRef] = useIntersection()
+    // const visible = useIntersection()
 
     // const smoothscroll = useParallax([name, bio], 0.075)
     // const smoothscroll = useSmoothScroll([name], 0.1)
 
-    useEffect(() => {
-        // smoothscroll()
-    }, [])
+    // useEffect(() => {
+    //     // smoothscroll()
+    // }, [])
 
-    useLayoutEffect(() => console.log(visible), [visible])
+    // useLayoutEffect(() => console.log(visible), [visible])
     
     // useLayoutEffect(() => {
     //     width < 700 ? name.current.classList.add('double') : name.current.classList.remove('double')
