@@ -102,8 +102,15 @@ h2 {
 }
 
 .about {
-  height: 100vh;
+  height: 20vh;
+  width: 95%;
+  font-size: 1.25rem;
   grid-column: 1 / 13;
+  justify-self: center;
+}
+
+.mobile-about {
+  height: 40vh;
 }
 
 .work {
@@ -165,6 +172,11 @@ h3 {
   cursor: pointer;
 }
 
+.description {
+  position: relative;
+  z-index: 2;
+}
+
 .footer {
   height: 50vh;
   width: 100%;
@@ -185,7 +197,7 @@ h3 {
   grid-column: span 2;
   justify-self: center;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
 }
 

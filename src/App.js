@@ -14,11 +14,11 @@ function App() {
 
   useLayoutEffect(() => {
     setBodySize()
-  }, [height])
+  }, [height, setBodySize])
   
   useLayoutEffect(() => {
     smoothscroll()
-  }, [])
+  }, [smoothscroll])
   
   console.count('render')
 

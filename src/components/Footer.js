@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { memo } from 'react'
 
 const Footer = () => {
     const redirect = e => {
@@ -24,4 +24,4 @@ const Footer = () => {
     )
 }
 
-export default Footer
+export default memo(Footer)
