@@ -1,6 +1,10 @@
-import React, { memo } from 'react'
+import React, { memo, useRef, useEffect } from 'react'
+import useIntersection from '../hooks/useIntersection'
 
 const Footer = () => {
+    const footer = useRef()
+    const visible = useIntersection(footer)
+
     const redirect = e => {
         const classList = e.target.classList.value
         if (classList.includes('github')) {
@@ -12,9 +16,13 @@ const Footer = () => {
         }
     }
     
+    useEffect(() => {
+        visible ? document.body.classList.add('invert') : document.body.classList.remove('invert')
+    }, [visible])
+
     return (
-        <div className="footer">
-            <div className="msg">Get in touch!</div>
+        <div id="footer" className="footer" ref={footer}>
+            <div className="msg">Get in touch.</div>
             <div className="contact">
                 <div className="github icon" onClick={redirect}/>
                 <div className="linkedin icon" onClick={redirect}/>

@@ -7,14 +7,15 @@ const useIntersection = ref => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => setVisible(entry.intersectionRatio > 0))
         })
+        const el = ref.current
         
         if (ref.current) {
             observer.observe(ref.current)
         }
         
         return () => {
-            if (ref.current) {
-                observer.unobserve(ref.current)
+            if (el) {
+                observer.unobserve(el)
             }
         }
     }, [ref])

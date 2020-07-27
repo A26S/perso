@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, memo } from 'react'
 import Project from './Project'
 
 const Work = () => {
@@ -27,7 +27,7 @@ const Work = () => {
     ])
     
     return (
-        <div className="work">
+        <div id="work" className="work">
             {projects[0].map(({title, description, img, alt, url}, index) => <Project 
             key={index}
             title={title} 
@@ -39,4 +39,4 @@ const Work = () => {
     )
 }
 
-export default Work
+export default memo(Work)

@@ -4,19 +4,14 @@ import useParallax from '../hooks/useParallax'
 const Project = ({title, description, img, alt, url}) => {
     const h3 = useRef()
     const desc = useRef()
-    const imgRef = useRef()
     useParallax({
         el: h3,
         overflow: 50
     })
     useParallax({
         el: desc,
-        overflow: -30
+        overflow: 30
     })
-    // useParallax({
-    //     el: imgRef,
-    //     overflow: 75
-    // })
 
     const handleClick = () => {
         window.open(url, '_blank')
@@ -25,7 +20,7 @@ const Project = ({title, description, img, alt, url}) => {
     return (
         <div className="project" >
             <h3 ref={h3}>{title}</h3>
-            <div className="img-wrap" ref={imgRef} onClick={handleClick} >
+            <div className="img-wrap" onClick={handleClick} >
                 <img className="img" src={img} alt={alt}/>
                 <div className="button" >View</div>
             </div>

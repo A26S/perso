@@ -59,8 +59,8 @@ const useParallax = ({ el, overflow }) => {
         if (visible) {
             render() 
         }
+        
         request.current = requestAnimationFrame(() => parallax(el, overflow))
-
     }, [translateY, visible])
     
     
