@@ -10,7 +10,7 @@ import useSmoothScroll from './hooks/useSmoothScroll';
 function App() {
   const root = useRef()
   const [setBodySize, height] = useScroll(root)
-  const smoothscroll = useSmoothScroll(root, 0.075)
+  const smoothscroll = useSmoothScroll(root, 0.08)
 
   useLayoutEffect(() => {
     setBodySize()
