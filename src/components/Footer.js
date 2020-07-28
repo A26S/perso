@@ -1,9 +1,15 @@
 import React, { memo, useRef, useEffect } from 'react'
 import useIntersection from '../hooks/useIntersection'
+import useParallax from '../hooks/useParallax'
 
 const Footer = () => {
     const footer = useRef()
+    const contact = useRef()
     const visible = useIntersection(footer)
+    useParallax({
+        el: contact, 
+        overflow: 100
+    })
 
     const redirect = e => {
         const classList = e.target.classList.value
@@ -23,10 +29,10 @@ const Footer = () => {
     return (
         <div id="footer" className="footer" ref={footer}>
             <div className="msg">Get in touch.</div>
-            <div className="contact">
+            <div className="contact" ref={contact}>
+                <div className="medium icon" onClick={redirect}/>
                 <div className="github icon" onClick={redirect}/>
                 <div className="linkedin icon" onClick={redirect}/>
-                <div className="medium icon" onClick={redirect}/>
             </div>
         </div>
     )
