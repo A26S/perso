@@ -6,10 +6,10 @@ const Footer = () => {
     const footer = useRef()
     const contact = useRef()
     const visible = useIntersection(footer)
-    useParallax({
-        el: contact, 
-        overflow: 100
-    })
+    // useParallax({
+    //     el: contact, 
+    //     overflow: 100
+    // })
 
     const redirect = e => {
         const classList = e.target.classList.value

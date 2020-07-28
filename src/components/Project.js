@@ -8,10 +8,10 @@ const Project = ({title, description, img, alt, url}) => {
         el: h3,
         overflow: 50
     })
-    useParallax({
-        el: desc,
-        overflow: 30
-    })
+    // useParallax({
+    //     el: desc,
+    //     overflow: 30
+    // })
 
     const handleClick = () => {
         window.open(url, '_blank')
