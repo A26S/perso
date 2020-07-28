@@ -30,6 +30,7 @@ html, body {
 
 body {
   overscroll-behavior-y: none;
+  transition: background-color 200ms ease-out;
 }
 
 .invert {
@@ -192,12 +193,14 @@ h3 {
   grid-column: span 12;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: 1fr 100px;
 }
 
 
 .msg {
   margin: 20px 40px;
   grid-column: span 1;
+  grid-row: 2 / 3;
   justify-self: start;
   align-self: end;
   letter-spacing: 2px;
@@ -205,10 +208,11 @@ h3 {
 
 .contact {
   width: 60%;
-  grid-column: span 2;
+  grid-column: span 3;
+  grid-row: 1 / 2;
   justify-self: center;
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   align-items: center;
 }
 
