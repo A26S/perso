@@ -1,6 +1,6 @@
 import React, { memo, useRef, useEffect } from 'react'
 import useIntersection from '../hooks/useIntersection'
-import useParallax from '../hooks/useParallax'
+// import useParallax from '../hooks/useParallax'
 
 const Footer = () => {
     const footer = useRef()
@@ -16,7 +16,7 @@ const Footer = () => {
         if (classList.includes('github')) {
             window.open('https://github.com/A26S', '_blank')
         } else if (classList.includes('linkedin')) {
-            window.open('https://uk.linkedin.com/in/ali-saidik-247aba195', '_blank')
+            window.open('https://uk.linkedin.com/in/ali-saidik', '_blank')
         } else if (classList.includes('medium')) {
             window.open('https://medium.com/@saida130.210', '_blank')
         }
@@ -30,8 +30,8 @@ const Footer = () => {
         <div id="footer" className="footer" ref={footer}>
             <div className="msg">Get in touch.</div>
             <div className="contact" ref={contact}>
-                <div className="linkedin icon" onClick={redirect}/>
                 <div className="github icon" onClick={redirect}/>
+                <div className="linkedin icon" onClick={redirect}/>
                 <div className="medium icon" onClick={redirect}/>
             </div>
         </div>
